@@ -8,6 +8,10 @@ This Angular UI for a Quarkus backend was vibe coded with Claude. The developmen
 2. **Refinement** - Two rounds of AI-assisted review and improvement of the plan
 3. **Implementation** - The entire application was implemented in one go by Claude
 
+## Screenshot
+
+![Notez App Screenshot](public/Screenshot%202025-12-14%20171628.png)
+
 ## Development
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
