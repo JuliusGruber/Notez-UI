@@ -1,5 +1,15 @@
 # NotezApp
 
+## About
+
+This Angular UI for a Quarkus backend was vibe coded with Claude. The development process consisted of three steps:
+
+1. **Planning** - A three-sentence prompt was used to generate a detailed implementation plan
+2. **Refinement** - Two rounds of AI-assisted review and improvement of the plan
+3. **Implementation** - The entire application was implemented in one go by Claude
+
+## Development
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
 
 ## Development server
