@@ -10,7 +10,7 @@ This Angular UI for a Quarkus backend was vibe coded with Claude. The developmen
 
 ## Screenshot
 
-![Notez App Screenshot](public/Screenshot%202025-12-14%20171628.png)
+![Notez App Screenshot](public/img.png)
 
 ## Development
 
