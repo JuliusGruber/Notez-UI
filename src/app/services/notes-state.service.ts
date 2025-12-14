@@ -7,7 +7,7 @@ export type EditMode = 'view' | 'edit' | 'create';
 export class NotesStateService {
   // Core state using signals
   private _notes = signal<Note[]>([]);
-  private _selectedNoteId = signal<number | null>(null);
+  private _selectedNoteId = signal<string | null>(null);
   private _editMode = signal<EditMode>('view');
   private _isLoading = signal(false);
   private _hasUnsavedChanges = signal(false);
@@ -76,11 +76,11 @@ export class NotesStateService {
     );
   }
 
-  removeNote(id: number): void {
+  removeNote(id: string): void {
     this._notes.update(notes => notes.filter(n => n.id !== id));
   }
 
-  selectNote(id: number | null): void {
+  selectNote(id: string | null): void {
     this._selectedNoteId.set(id);
   }
 

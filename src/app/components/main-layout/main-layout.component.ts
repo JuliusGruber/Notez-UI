@@ -67,7 +67,7 @@ export class MainLayoutComponent implements OnInit {
     // Read note ID from URL on init
     this.route.params.subscribe(params => {
       if (params['id']) {
-        this.notesState.selectNote(Number(params['id']));
+        this.notesState.selectNote(params['id']);
         this.notesState.setEditMode('view');
         if (this.isMobile()) {
           this.showDetail.set(true);
@@ -188,7 +188,7 @@ export class MainLayoutComponent implements OnInit {
     }
   }
 
-  onNoteDeleted(id: number): void {
+  onNoteDeleted(id: string): void {
     this.notesService.deleteNote(id).subscribe({
       next: () => {
         this.notesState.removeNote(id);

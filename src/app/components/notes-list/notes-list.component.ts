@@ -13,7 +13,7 @@ import { Note } from '../../models/note.model';
 })
 export class NotesListComponent {
   @Input() notes: Note[] = [];
-  @Input() selectedNoteId: number | null = null;
+  @Input() selectedNoteId: string | null = null;
   @Output() noteSelected = new EventEmitter<Note>();
 
   selectNote(note: Note): void {

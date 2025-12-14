@@ -27,7 +27,7 @@ export class NoteDetailComponent {
   @Input() note: Note | null = null;
   @Input() mode: EditMode = 'view';
   @Output() save = new EventEmitter<NotePayload>();
-  @Output() delete = new EventEmitter<number>();
+  @Output() delete = new EventEmitter<string>();
   @Output() modeChange = new EventEmitter<EditMode>();
 
   constructor(
