@@ -1,0 +1,24 @@
+mat-card {
+  max-width: 800px;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-card-actions {
+  padding: 16px;
+  gap: 8px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 200px;
+}

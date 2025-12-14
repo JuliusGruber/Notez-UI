@@ -1,0 +1,54 @@
+<form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        {{ isEditMode ? 'Edit Note' : 'New Note' }}
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" placeholder="Enter note title">
+        @if (noteForm.get('title')?.hasError('required') && noteForm.get('title')?.touched) {
+          <mat-error>Title is required</mat-error>
+        }
+        @if (noteForm.get('title')?.hasError('maxlength')) {
+          <mat-error>Title cannot exceed 200 characters</mat-error>
+        }
+        @if (noteForm.get('title')?.hasError('pattern') && !noteForm.get('title')?.hasError('required')) {
+          <mat-error>Title cannot be empty</mat-error>
+        }
+        <mat-hint align="end">{{ noteForm.get('title')?.value?.length || 0 }}/200</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Content</mat-label>
+        <textarea
+          matInput
+          formControlName="content"
+          placeholder="Write your note here..."
+          rows="15"></textarea>
+        @if (noteForm.get('content')?.hasError('required') && noteForm.get('content')?.touched) {
+          <mat-error>Content is required</mat-error>
+        }
+        @if (noteForm.get('content')?.hasError('maxlength')) {
+          <mat-error>Content cannot exceed 10,000 characters</mat-error>
+        }
+        <mat-hint align="end">{{ noteForm.get('content')?.value?.length || 0 }}/10000</mat-hint>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button mat-button type="button" (click)="onCancel()">Cancel</button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="noteForm.invalid || isSaving">
+        <mat-icon>save</mat-icon>
+        {{ isSaving ? 'Saving...' : 'Save' }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

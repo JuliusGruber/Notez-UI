@@ -1,0 +1,18 @@
+<mat-nav-list>
+  @for (note of notes; track note.id) {
+    <mat-list-item
+      [activated]="note.id === selectedNoteId"
+      (click)="selectNote(note)">
+      <span matListItemTitle>{{ note.title }}</span>
+      <span matListItemLine>{{ truncateContent(note.content) }}</span>
+      <span matListItemMeta>{{ note.updatedAt | date:'shortDate' }}</span>
+    </mat-list-item>
+  }
+</mat-nav-list>
+
+@if (notes.length === 0) {
+  <div class="empty-state">
+    <mat-icon>note_add</mat-icon>
+    <p>No notes yet. Create your first note!</p>
+  </div>
+}

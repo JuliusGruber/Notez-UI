@@ -1,0 +1,55 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+mat-card {
+  max-width: 800px;
+}
+
+mat-card-header {
+  margin-bottom: 16px;
+}
+
+mat-card-content {
+  padding-top: 8px;
+}
+
+.note-content {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+mat-card-actions {
+  padding: 16px;
+  gap: 8px;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: rgba(0, 0, 0, 0.54);
+  text-align: center;
+  padding: 24px;
+
+  mat-icon {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    margin: 0 0 8px 0;
+    font-weight: 400;
+  }
+
+  p {
+    margin: 0;
+  }
+}

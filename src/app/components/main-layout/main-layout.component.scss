@@ -1,0 +1,123 @@
+.main-layout {
+  display: flex;
+  height: 100vh;
+  position: relative;
+
+  .loading-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+
+  .left-panel {
+    flex: 0 0 35%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fafafa;
+    min-width: 280px;
+    max-width: 400px;
+
+    mat-toolbar {
+      flex-shrink: 0;
+    }
+
+    .search-container {
+      padding: 8px 16px;
+      background-color: #fafafa;
+
+      .search-field {
+        width: 100%;
+
+        ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+          display: none;
+        }
+      }
+    }
+
+    .notes-list-container {
+      flex: 1;
+      overflow-y: auto;
+    }
+  }
+
+  .right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    overflow: hidden;
+
+    .detail-toolbar {
+      flex-shrink: 0;
+    }
+
+    .detail-content {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+    }
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+// Tablet breakpoint (600px - 960px)
+@media (max-width: 960px) {
+  .main-layout {
+    .left-panel {
+      flex: 0 0 40%;
+      min-width: 240px;
+    }
+
+    .right-panel {
+      .detail-content {
+        padding: 16px;
+      }
+    }
+  }
+}
+
+// Mobile breakpoint (< 600px)
+@media (max-width: 600px) {
+  .main-layout {
+    &.mobile {
+      .left-panel {
+        flex: 1;
+        min-width: 100%;
+        max-width: none;
+
+        &.hidden-mobile {
+          display: none;
+        }
+      }
+
+      .right-panel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+
+        &.hidden-mobile {
+          display: none;
+        }
+
+        .detail-content {
+          padding: 16px;
+        }
+      }
+    }
+  }
+
+  .add-note-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 5;
+  }
+}
