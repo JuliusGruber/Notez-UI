@@ -1,0 +1,67 @@
+<div class="main-layout" [class.mobile]="isMobile()">
+  @if (notesState.isLoading()) {
+    <mat-progress-bar mode="indeterminate" class="loading-bar"></mat-progress-bar>
+  }
+
+  <div class="left-panel" [class.hidden-mobile]="isMobile() && showDetail()">
+    <mat-toolbar color="primary">
+      <span>Notez</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="onNewNote()" aria-label="Add new note">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div class="search-container">
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>Search notes</mat-label>
+        <input matInput [formControl]="searchControl" placeholder="Search by title or content...">
+        <mat-icon matPrefix>search</mat-icon>
+        @if (searchControl.value) {
+          <button mat-icon-button matSuffix (click)="clearSearch()" aria-label="Clear search">
+            <mat-icon>close</mat-icon>
+          </button>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="notes-list-container">
+      <app-notes-list
+        [notes]="notesState.filteredNotes()"
+        [selectedNoteId]="notesState.selectedNoteId()"
+        (noteSelected)="onNoteSelected($event)">
+      </app-notes-list>
+    </div>
+  </div>
+
+  @if (!isMobile()) {
+    <mat-divider vertical></mat-divider>
+  }
+
+  <div class="right-panel" [class.hidden-mobile]="isMobile() && !showDetail()">
+    @if (isMobile() && showDetail()) {
+      <mat-toolbar color="primary" class="detail-toolbar">
+        <button mat-icon-button (click)="onBackToList()" aria-label="Back to list">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <span>{{ notesState.editMode() === 'create' ? 'New Note' : (notesState.selectedNote()?.title || 'Note') }}</span>
+      </mat-toolbar>
+    }
+
+    <div class="detail-content">
+      <app-note-detail
+        [note]="notesState.selectedNote()"
+        [mode]="notesState.editMode()"
+        (save)="onNoteSaved($event)"
+        (delete)="onNoteDeleted($event)"
+        (modeChange)="onModeChange($event)">
+      </app-note-detail>
+    </div>
+  </div>
+
+  @if (isMobile() && !showDetail()) {
+    <button mat-fab color="accent" class="add-note-fab" (click)="onNewNote()" aria-label="Add new note">
+      <mat-icon>add</mat-icon>
+    </button>
+  }
+</div>

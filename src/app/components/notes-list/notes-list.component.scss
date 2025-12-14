@@ -1,0 +1,42 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+mat-nav-list {
+  padding-top: 0;
+}
+
+mat-list-item {
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  &[activated="true"] {
+    background-color: rgba(63, 81, 181, 0.12);
+  }
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  color: rgba(0, 0, 0, 0.54);
+  text-align: center;
+
+  mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    margin: 0;
+  }
+}

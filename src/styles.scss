@@ -1,0 +1,23 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$notez-primary: mat.m2-define-palette(mat.$m2-indigo-palette);
+$notez-accent: mat.m2-define-palette(mat.$m2-pink-palette, A200, A100, A400);
+$notez-warn: mat.m2-define-palette(mat.$m2-red-palette);
+
+$notez-theme: mat.m2-define-light-theme((
+  color: (
+    primary: $notez-primary,
+    accent: $notez-accent,
+    warn: $notez-warn,
+  )
+));
+
+@include mat.all-component-themes($notez-theme);
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

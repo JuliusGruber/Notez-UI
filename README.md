@@ -1,53 +1,59 @@
-# Notez
+# NotezApp
 
-A web application for managing notes, built with Angular and Claude.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
 
-## Overview
+## Development server
 
-Notez is a modern note-taking web application that provides a clean and intuitive interface for creating, organizing, and managing your notes.
+To start a local development server, run:
 
-## Tech Stack
+```bash
+ng serve
+```
 
-- **Frontend**: Angular
-- **AI Assistant**: Claude
-- **Backend**: [Notez Backend](https://github.com/JuliusGruber/Notez) (separate repository)
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Getting Started
+## Code scaffolding
 
-### Prerequisites
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Angular CLI
+```bash
+ng generate component component-name
+```
 
-### Installation
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/JuliusGruber/Notez-UI.git
-   cd Notez-UI
-   ```
+```bash
+ng generate --help
+```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+## Building
 
-3. Start the development server:
-   ```bash
-   ng serve
-   ```
+To build the project run:
 
-4. Open your browser and navigate to `http://localhost:4200`
+```bash
+ng build
+```
 
-## Development
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-Run `ng serve` for a dev server. The application will automatically reload if you change any of the source files.
+## Running unit tests
 
-## Build
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+ng test
+```
 
-## License
+## Running end-to-end tests
 
-This project is licensed under the MIT License.
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
